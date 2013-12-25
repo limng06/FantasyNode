@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BackService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IBackService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8999/BackService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8999/BackService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBackService_ImNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImNew" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_ImNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_UnRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegister" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_UnRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_SendNewestList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendNewestList" />
+  </wsdl:message>
+  <wsdl:message name="IBackService_SendMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:portType name="IBackService">
+    <wsdl:operation name="ImNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBackService/ImNew" message="tns:IBackService_ImNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBackService/ImNewResponse" message="tns:IBackService_ImNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBackService/Register" message="tns:IBackService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBackService/RegisterResponse" message="tns:IBackService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBackService/UnRegister" message="tns:IBackService_UnRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBackService/UnRegisterResponse" message="tns:IBackService_UnRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewestList">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBackService/SendNewestList" message="tns:IBackService_SendNewestList_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IBackService/SendMessage" message="tns:IBackService_SendMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IBackService" type="tns:IBackService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IBackService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ImNew">
+      <soap12:operation soapAction="http://tempuri.org/IBackService/ImNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/IBackService/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnRegister">
+      <soap12:operation soapAction="http://tempuri.org/IBackService/UnRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewestList">
+      <soap12:operation soapAction="http://tempuri.org/IBackService/SendNewestList" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IBackService/SendMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BackService">
+    <wsdl:port name="NetTcpBinding_IBackService" binding="tns:NetTcpBinding_IBackService">
+      <soap12:address location="net.tcp://localhost:9999/BackService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:9999/BackService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
