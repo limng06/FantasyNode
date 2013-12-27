@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommunicateProtocolsEnum.cs" />
     <Compile Include="UnityServiceLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

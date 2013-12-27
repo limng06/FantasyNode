@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IBackService.cs" />
     <Compile Include="IClient.cs" />
+    <Compile Include="ICommonCommunicate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -21,5 +21,15 @@ namespace FantasyNode.Interfaces
         /// <param name="msg"></param>
         [OperationContract(IsOneWay = true)]
         void SendMessage(string msg);
+        /// <summary>
+        /// 注册客户端
+        /// </summary>
+        [OperationContract]
+        void Register();
+        /// <summary>
+        /// 卸载客户端
+        /// </summary>
+        [OperationContract]
+        void UnRegister();
     }
 }

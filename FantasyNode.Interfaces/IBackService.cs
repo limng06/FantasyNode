@@ -5,11 +5,12 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using FantasyNode.Entities;
+using Interfaces;
 
 namespace FantasyNode.Interfaces
 {
     [ServiceContract(CallbackContract = typeof(IClient))]
-    public interface IBackService
+    public interface IBackService:ICommonCommunicate
     {
         /// <summary>
         /// 广播我是最新的,听到的人对比自己的时间戳 ，如果比自己新，那自己就关闭广播
@@ -20,7 +21,7 @@ namespace FantasyNode.Interfaces
         /// 注册客户端
         /// </summary>
         [OperationContract]
-        void Register(string guid, string zoo, string ip,string name);
+        void Register(string guid, string zoo, string ip, string name);
         /// <summary>
         /// 卸载客户端
         /// </summary>

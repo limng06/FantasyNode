@@ -71,7 +71,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lim.CommonLibrary\Lim.CommonLibrary\Lim.CommonLibrary.csproj">
+    <ProjectReference Include="..\Lim.CommonLibrary\Lim.CommonLibrary.csproj">
       <Project>{d449ec5a-d22f-4679-8972-691175b9b611}</Project>
       <Name>Lim.CommonLibrary</Name>
     </ProjectReference>

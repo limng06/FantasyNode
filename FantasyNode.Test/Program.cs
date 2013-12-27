@@ -20,11 +20,11 @@ namespace TestConnection
         public static object object1;
         static void Main(string[] args)
         {
-
-
             ///测试，从192.168.1.1-192.168.1.254开始查找
             Action<int> DoSearchService = new Action<int>(t => { FindServiceOnIP(t); });
-            System.Threading.Tasks.Parallel.For(100, 200, DoSearchService);
+            ParallelOptions parallelOptions = new ParallelOptions();
+            parallelOptions.MaxDegreeOfParallelism = -1;
+            System.Threading.Tasks.Parallel.For(100, 200, parallelOptions, DoSearchService);
             Console.ReadKey();
         }
 
@@ -55,7 +55,7 @@ namespace TestConnection
             }
             catch (Exception e)
             {
-                log4net.LogManager.GetLogger("FantasyNode.Logging").Debug(serviceURL.ToString() + "没有回应");
+                //log4net.LogManager.GetLogger("FantasyNode.Logging").Debug(serviceURL.ToString() + "没有回应");
                 Console.WriteLine(serviceURL + "  :fail!    " + e.Message);
             }
         }

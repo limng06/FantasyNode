@@ -42,10 +42,16 @@
   <ItemGroup>
     <Compile Include="BackService.cs" />
     <Compile Include="BaseClientService.cs" />
+    <Compile Include="CommonOperation.cs" />
+    <Compile Include="CommunicateBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lim.CommonLibrary\Lim.CommonLibrary\Lim.CommonLibrary.csproj">
+    <ProjectReference Include="..\FantasyNode.Common\FantansyNode.Common.csproj">
+      <Project>{a7a615fb-4c09-4775-be40-9189bc88d4a4}</Project>
+      <Name>FantansyNode.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lim.CommonLibrary\Lim.CommonLibrary.csproj">
       <Project>{d449ec5a-d22f-4679-8972-691175b9b611}</Project>
       <Name>Lim.CommonLibrary</Name>
     </ProjectReference>
